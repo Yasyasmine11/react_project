@@ -10,6 +10,7 @@ import { useNavigation, CommonActions } from '@react-navigation/native';
 import SearchScreen from "../screens/SearchScreen";
 import FavorisScreen from "../screens/FavorisScreen";
 import CartScreen from "../screens/CartScreen";
+import AuthStackNavigator from "./AuthStackNavigator";
 
 const Drawer = createDrawerNavigator();
 
@@ -127,6 +128,16 @@ const DrawerNavigator = () => {
           }}
         />
       </Drawer.Navigator>
+      <Drawer.Screen
+          name="Profile"
+          component={AuthStackNavigator}
+          options={{
+            title: "Profil",
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="person" size={size} color={color} />
+            ),
+          }}
+        />
     </NavigationContainer>
   );
 };

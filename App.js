@@ -18,6 +18,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import DrawerNavigator from "./navigation/DrawerNavigator"; 
 
+
 const App = () => {
   return (
     <Provider store={store}>

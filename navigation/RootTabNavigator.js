@@ -5,6 +5,7 @@ import HomeStackNavigator from "./HomeStackNavigator";
 import CartStackNavigator from "./CartStackNavigator";
 import SearchStackNavigator from "./SearchStackNavigator";
 import FavorisStackNavigator from "./FavorisStackNavigator";
+import AuthStackNavigator from "./AuthStackNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +27,10 @@ const RootTabNavigator = () => {
             iconName = focused ? "search" : "search";;
           } else if (route.name === "Favoris") {
             iconName = focused ? "heart" : "heart-outline";
+          } else if (route.name === "Profile") {  // Nouvel icône
+            iconName = focused ? "person" : "person-outline";
           }
+
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: "#A5BB80",
@@ -39,7 +43,19 @@ const RootTabNavigator = () => {
       <Tab.Screen name="Search" component={SearchStackNavigator} />
       <Tab.Screen name="Favoris" component={FavorisStackNavigator} />
       <Tab.Screen name="Cart" component={CartStackNavigator} />
-
+      <Tab.Screen 
+  name="Profile" 
+  component={AuthStackNavigator}
+  options={{
+    tabBarIcon: ({ focused, color, size }) => (
+      <Ionicons 
+        name={focused ? "person" : "person-outline"} 
+        size={size} 
+        color={color} 
+      />
+    ),
+  }}
+/>
     </Tab.Navigator>
   );
 };
